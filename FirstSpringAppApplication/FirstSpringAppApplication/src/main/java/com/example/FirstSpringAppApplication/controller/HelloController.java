@@ -1,13 +1,15 @@
 package com.example.FirstSpringAppApplication.controller;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.FirstSpringAppApplication.model.User;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
 
-    @GetMapping("/param/{name}")
-    public String sayHello(@PathVariable String name) {
-        return "Hello " + name + " from BridgeLabz!";
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz!";
     }
 }
